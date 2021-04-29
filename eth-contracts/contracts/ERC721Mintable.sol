@@ -500,8 +500,8 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     function symbol() external view returns (string memory){
         return _symbol;
     }
-    function tokenURI() external view returns (string memory){
-        return _baseTokenURI;
+    function tokenURI(uint256 tokenId) external view returns (string memory){
+        return _tokenURIs[tokenId];
     }
 
     function getTokenURI(uint256 tokenId) external view returns (string memory) {
@@ -532,7 +532,7 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 //      -returns a true boolean upon completion of the function
 //      -calls the superclass mint and setTokenURI functions
 
-contract CustomERC721Token is ERC721Metadata("CarolineCustomERC721Token","TWD","https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/"){
+contract CustomERC721Token is ERC721Metadata("CarolineCustomERC721Token","TWD","https://opensea-creatures-api.herokuapp.com/api/creature/"){
     function mint(address to, uint256 tokenId, string memory tokenURI) public onlyOwner returns(bool){
         super._mint(to, tokenId);
         super.setTokenURI(tokenId);
