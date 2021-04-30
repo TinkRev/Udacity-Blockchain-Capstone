@@ -5,7 +5,7 @@ contract('TestERC721Mintable', accounts => {
     const account_one = accounts[0];
     const account_two = accounts[1];
     const defaultTokenCount = 3;
-    const baseURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
+    const baseURI = "https://opensea-creatures-api.herokuapp.com/api/creature/";
 
     describe('match erc721 spec', function () {
         beforeEach(async function () { 
